@@ -5,6 +5,7 @@
 
   $records = array(); //setup a records array
 
+
   if(!empty($_POST))  { //check if post is non empty
     if(isset($_POST['first_name'], $_POST['last_name'], $_POST['bio'])) { //if each post value is non empty
 
@@ -108,9 +109,7 @@
               <?php
             }//end else
               ?>
-              <div class="alert alert-success" hidden="true">
-                Record inserted successfully!
-              </div>
+
         </div>
       </div>
     <hr>
@@ -130,7 +129,7 @@
               <textarea type="text" class="form-control" id="bio" name="bio" placeholder="e.g. I love bootstrap"></textarea>
             </div>
             <div class="form-group">
-              <input type="button" class="btn btn-success" value="Insert" id="btn-insert"></button>
+              <input type="submit" class="btn btn-success button" value="Insert">
             </div>
           </form>
         </div>
@@ -143,8 +142,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/phpmysqli/ajax.js"></script>
-
-    </script>
   </body>
 </html>
