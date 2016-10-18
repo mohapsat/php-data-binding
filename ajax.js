@@ -1,7 +1,19 @@
-$(document).ready(function(event){
+$(document).ready(function(){
 
   // var timeStamp = Math.floor(Date.now() / 1000);
   console.log('Document ready');
+
+// display data table START
+
+$('#id-datatable').dataTable({
+  // some parameters for jquery ui
+  "bJQueryUI": true,
+  "sPaginationType": "full_numbers"
+});
+
+// display data table END
+
+//check button click event
   $('input#btn-insert').on('click',function(){
     console.log('Insert clicked');
 
@@ -11,7 +23,7 @@ $(document).ready(function(event){
 
 //check if data missing
       if(!(first_name) || !(last_name) || !(bio) ){
-        alert('data missing');
+        alert('data is missing');
       } else {
 
         $.post(
@@ -23,7 +35,8 @@ $(document).ready(function(event){
                   console.log(first_name+' '+last_name+' '+bio);
               }
 
-        })
+        });
       }
-  })
-})
+  });
+
+});

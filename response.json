@@ -1,0 +1,7 @@
+{
+  "data":[
+    {"first_name":"John1","last_name":"Doe","bio":"Cook","created":"2016-10-17 14:23:22"}
+    ,{"first_name":"John2","last_name":"Doe","bio":"Coach","created":"2016-10-17 14:23:22"}
+    ,{"first_name":"John3","last_name":"Doe","bio":"Skydiver","created":"2016-10-17 14:23:22"}
+  ]
+}

@@ -5,6 +5,22 @@
 
   $records = array(); //setup a records array
 
+  // fetch table data
+
+    if($results = $db->query("SELECT * FROM people")) { //pass all results into a results object
+      if($results->num_rows){ //check if rows reruned is not 0
+        while($row = $results->fetch_object()){ //loop over results and fetch objects
+          $records[] = $row; //appeand records array with row values
+        }
+        $results->free(); //free mem from restults object
+      }
+    }
+
+
+
+
+// insert data into records array
+
   if(!empty($_POST))  { //check if post is non empty
     if(isset($_POST['first_name'], $_POST['last_name'], $_POST['bio'])) { //if each post value is non empty
 
@@ -31,17 +47,9 @@
     }
   }
 
+// $ar = json_encode($records);
 
-  if($results = $db->query("SELECT * FROM people")) { //pass all results into a results object
-    if($results->num_rows){ //check if rows reruned is not 0
-      while($row = $results->fetch_object()){ //loop over results and fetch objects
-        $records[] = $row; //appeand records arra with row values
-      }
-      $results->free(); //free mem from restults object
-    }
-  }
-
-// echo '<pre>', print_r($records) ,'</pre>';
+// echo '<pre>', print_r($ar) ,'</pre>';
 
 ?>
 
@@ -71,7 +79,7 @@
   <body>
 
     <div class="container">
-      <h3 class="text-muted text-info">People's Table</h3>
+      <h3 class="text-info">People's Table</h3>
       <div class="row">
         <div class="col-sm-10">
           <!-- markup for table to be displayed -->
@@ -81,7 +89,7 @@
               echo 'No records found';
             } else {
             ?>
-              <table class="table table-hover table-bordered table-responsive table-condensed">
+              <table id="id-datatable" class="table table-hover table-bordered table-responsive">
                 <thead>
                   <tr>
                     <th>First Name</th>
@@ -90,6 +98,7 @@
                     <th>Created</th>
                   </tr>
                 </thead>
+
                 <tbody>
                     <?php
                       foreach ($records as $r) {
@@ -104,6 +113,7 @@
                       } //end foreach
                     ?>
                 </tbody>
+
               </table>
               <?php
             }//end else
@@ -144,6 +154,11 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/phpmysqli/ajax.js"></script>
+    <link href="https://code.jquery.com/ui/jquery-ui-git.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-git.js"></script>
+    <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
 
     </script>
   </body>
