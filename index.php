@@ -96,6 +96,7 @@
                     <th>Last Name</th>
                     <th>Bio</th>
                     <th>Created</th>
+                    <th></th>
                   </tr>
                 </thead>
 
@@ -108,6 +109,21 @@
                     <td><?php echo escape($r->last_name); ?></td>
                     <td><?php echo escape($r->bio); ?></td>
                     <td><?php echo escape($r->created); ?></td>
+                    <td>
+                          <div class="hidden-sm hidden-xs action-buttons">
+                            <a class="text-default" href="#">
+                              <i class="fa fa-search-plus bigger-130"></i>
+                            </a>
+
+                            <a class="text-success" href="#">
+                              <i class="fa fa-pencil bigger-130"></i>
+                            </a>
+
+                            <a class="text-danger" href="#">
+                              <i class="fa fa-trash-o bigger-130"></i>
+                            </a>
+                          </div>
+                    </td>
                   </tr>
                     <?php
                       } //end foreach
